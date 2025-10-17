@@ -9,6 +9,8 @@ enableInlineShortcodes = true           # 允许在行内使用短代码
 enableEmoji = true                      # 支持 :smile: 等 emoji 简写
 enableRobotsTXT = true                  # 自动生成 robots.txt
 hasCJKLanguage = true                   # 启用中文/日文/韩文断词优化
+# 添加这行来禁用 Google Analytics
+googleAnalytics = ""
 
 # 构建选项
 buildDrafts = false     # 不构建草稿
@@ -19,8 +21,7 @@ StartYear = 2024
 EndYear = 2025
 # PaperMod 会自动显示为 "© 2024–2025"
 
-# 添加这行来禁用 Google Analytics
-googleAnalytics = ""
+
 
 # 分页与摘要
 [pagination]
