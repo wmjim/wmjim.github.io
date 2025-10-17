@@ -2,30 +2,33 @@
 name: Deploy my-blog to GitHub Pages
 
 on:
-  push:
-    branches: [ main ] # 当推送到 main 分支时触发
+    push:
+        branches: [main] # 当推送到 main 分支时触发
 
 jobs:
-  build-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          submodules: true # 别忘了拉取主题 submodule
-          fetch-depth: 0
+    build-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  submodules: true # 别忘了拉取主题 submodule
+                  fetch-depth: 0
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: 'latest'
-          extended: true
+            - name: Setup Hugo
+              uses: peaceiris/actions-hugo@v2
+              with:
+                  hugo-version: "latest"
+                  extended: true
 
-      - name: Build
-        run: hugo --minify
+            - name: Build
+              run: hugo --minify
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public # Hugo 生成的静态文件目录
+            - name: Deploy
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  personal_token: ${{ secrets.GH_PAT }}
+                  external_repository: wmjim/wmjim.github.io
+                  publish_branch: gh-pages
+                  publish_dir: ./public
+                  force_orphan: true
