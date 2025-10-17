@@ -10,7 +10,9 @@ enableEmoji = true                      # 支持 :smile: 等 emoji 简写
 enableRobotsTXT = true                  # 自动生成 robots.txt
 hasCJKLanguage = true                   # 启用中文/日文/韩文断词优化
 # 添加这行来禁用 Google Analytics
-googleAnalytics = ""
+[services.googleAnalytics]
+    ID = ""  # 设置为空字符串，或者你的 GA ID
+
 
 # 构建选项
 buildDrafts = false     # 不构建草稿
