@@ -1,0 +1,213 @@
+baseURL = 'https://wmjim.github.io'     # 站点根 URL
+languageCode = 'zh-cn'                  # 语言代码（影响 RSS 等）
+title = "Mengw's Blog"                  # 设置网站 标题
+theme = "PaperMod"                      # 设置网站主题
+defaultContentLanguage = "zh"
+
+# Hugo 行为控制
+enableInlineShortcodes = true           # 允许在行内使用短代码
+enableEmoji = true                      # 支持 :smile: 等 emoji 简写
+enableRobotsTXT = true                  # 自动生成 robots.txt
+hasCJKLanguage = true                   # 启用中文/日文/韩文断词优化
+
+# 构建选项
+buildDrafts = false     # 不构建草稿
+buildFuture = false     # 不构建未来日期文章
+buildExpired = false    # 不构建已过期文章
+
+StartYear = 2024
+EndYear = 2025
+# PaperMod 会自动显示为 "© 2024–2025"
+
+# 分页与摘要
+[pagination]
+    pagerSize = 15      # 首页每页显示 15 篇文章
+    summaryLength = 140     # 摘要长度（中文字符）
+
+# URL 与永久链接
+[permalinks]
+    post = "/:title/"     # 文章 URL 格式为 /文章标题/
+
+    # 主菜单
+[menu]
+    [[menu.main]]
+        identifier = "home"
+        name = "🏠 主页"
+        url = "/"
+        weight = 1
+
+    [[menu.main]]
+        identifier = "posts"
+        name = "📚 文章"
+        url = "/posts/"
+        weight = 2
+
+    [[menu.main]]
+        name = "⏱ 时间轴"
+        url = "/archives/"
+        weight = 3
+
+    [[menu.main]]
+        identifier = "tags"
+        name = "🏷️ 标签"
+        url = "/tags/"
+        weight = 4
+
+    [[menu.main]]
+        identifier = "categories"
+        name = "🧩 分类"
+        url = "/categories/"
+        weight = 5
+
+    [[menu.main]]
+        identifier = "search"
+        name = "🔎 搜索"
+        url = "/search/"
+        weight = 6
+
+    [[menu.main]]
+        identifier = "about"
+        name = "👤 关于"
+        url = "/about/"
+        weight = 7
+
+
+
+[params]
+    env = "production"
+    author = "mengw"
+    description = "个人博客，记录和分享"
+    defaultTheme = "light"
+    ShowCodeCopyButtons = true      # 代码块显示复制按钮
+    ShowReadingTime = true          # 显示阅读时长
+    ShowPostNavLinks = true         # 显示上/下一篇文章
+    ShowBreadCrumbs = true          # 显示面包屑导航
+    ShowWordCounts = true           # 显示字数统计
+    ShowLastMod = true              # 显示最后修改时间
+    ShowToc = true                  # 显示目录
+    TocOpen = true                  # 目录默认展开）
+    # comments = true               # 全局启用评论
+    math = true                     # 全局支持 LaTex
+    # search = true
+    # search_placeholder = "搜索..." # 可选：更改默认的搜索框占位符文本
+    enableSearch = true
+    # 个人卡片页
+    [params.profileMode]
+        enabled = true
+        title = "mengw"                    # 可选，默认使用 site.title
+        subtitle = "Software Engineer & Open Source Enthusiast"
+        imageUrl = "/images/avatar.jpg"     # 可选：头像 URL
+        imageTitle = "God Bless You👋"            # 可选：alt 文本
+        imageWidth = 120                                # 单位：px
+        imageHeight = 120
+    [profileMode.buttons]
+        Archive = "/archive"
+        GitHub = "https://github.com/wmjim"
+        Blog = "/posts"
+    # 网站标识（左上角）
+    [params.label]
+        text = "Mengw's Blog"
+        icon = "/images/avatar.jpg"
+        iconHeight = 35
+    [params.assets]
+        favicon = "/images/avatar.jpg"
+        customCSS = [   "css/extended/custom.css",
+                        "css/extended/three-columns.css"
+                    ]
+    [params.cover]
+        hidden = false         # 不隐藏封面
+        hiddenInList = false   # 列表页显示封面
+        hiddenInSingle = true  # 单篇文章页隐藏封面（你设为 true）
+    # 配置 Fuse.js 搜索选项
+    [params.fuseOpts]
+        isCaseSensitive = false # 是否区分大小写
+        shouldSort = true       # 是否根据匹配度对结果排序
+        location = 0            # 开始匹配的文本位置
+        distance = 1000
+        threshold = 0.4
+        minMatchCharLength = 0
+        # limit = 10  # 取消注释可限制搜索结果数量
+        # 指定在哪些字段中搜索，title:文章标题、permalink:文章url、summary：摘要、content:全文内容
+        keys = ["title", "permalink", "summary", "content"]
+        # 开启功能
+    # 编辑此页
+    [params.editPost]
+        URL = "https://github.com/wmjim/MyBlog/edit/main/content"
+        Text = "编辑此页"
+        appendFilePath = true
+    # 添加评论系统
+    [params.utteranc]
+        enable = true
+        repo = "wmjim/blog-comments"
+        issueTerm = "pathname"
+        theme = "preferred-color-scheme"
+
+
+# 社交链接 - 使用数组格式
+[[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/wmjim"
+[[params.socialIcons]]
+    name = "email"
+    url = "meng.w1016@outlook.com"
+[[params.socialIcons]]
+    name = "medium"
+    url = "https://medium.com/@meng.w1016"
+[[params.socialIcons]]
+    name = "twitter"
+    url = "yourhandle"
+[[params.socialIcons]]
+    name = "bilibili"
+    url = "https://space.bilibili.com/3546830520454041"
+# 按钮列表
+[[params.profileMode.buttons]]
+    name = "Archive"
+    url = "/archive"
+
+[[params.profileMode.buttons]]
+    name = "GitHub"
+    url = "https://github.com/alexchen"
+
+[[params.profileMode.buttons]]
+    name = "Blog"
+    url = "/posts"
+
+
+[markup]
+    [markup.goldmark]
+        [markup.goldmark.renderer]
+            unsafe = true # 允许在 MarkDown 中使用原始 HTML
+    [markup.tableOfContents]
+        startLevel = 2
+        endLevel = 6
+        ordered = false
+    # 代码高亮
+    [markup.highlight]
+        codeFences = true       # 启用围栏代码块
+        guessSyntax = false     # 关闭自动猜代码语言
+        # lineNos = true          # 显示行号
+        lineNumbersInTable = true
+        noClasses = true
+        style = "dracula"  # 可选 monokai、github 等
+
+# 分类法
+[taxonomies]
+    tag = "tags"        # 标签分类
+    series = "series"   # 系列分类
+
+# 自定义首页输出格式
+[outputs]
+    home = ["HTML", "RSS", "JSON"]
+    section = ['HTML', 'RSS']
+    taxonomy = ['HTML']
+    term = ['HTML']
+
+[services]
+    [services.rss]
+        limit = 42
+
+# RSS 订阅
+[outputFormats]
+    [outputFormats.RSS]
+        mediatype = "application/rss+xml"
+        baseName = "feed"
