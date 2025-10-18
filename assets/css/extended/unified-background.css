@@ -1,0 +1,24 @@
+/* 统一所有页面的背景样式 */
+body {
+    background-color: var(--code-bg) !important;
+
+}
+
+/* 覆盖分类页、标签页和关于页的背景样式 */
+.archive-content,
+.terms-tags,
+.categories-container,
+.archive {
+    background-color: var(--code-bg);
+}
+
+/* 确保所有页面的标题样式一致 */
+/* .page-header {
+    margin: 0;
+    padding-bottom: var(--gap);
+} */
+
+/* 确保内容区域边距一致 */
+.post-content {
+    margin-top: 0;
+}
