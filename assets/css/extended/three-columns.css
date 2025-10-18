@@ -19,14 +19,20 @@
     /* 左侧目录栏 */
     .three-column-layout .toc-sidebar {
         position: sticky;
-        top: 1rem;
+        top: 2rem;
         height: fit-content;
         max-height: calc(100vh - 4rem);
-        overflow: hidden; /* 容器不滚动，让内部滚动 */
+    }
+
+    .three-column-layout .toc-sidebar .toc {
+        height: fit-content;
+        max-height: calc(100vh - 4rem);
+        overflow-y: auto;
         font-size: 0.95em;
-        border-radius: var(--radius);
-        padding: 1rem;
-        align-self: start; /* 确保从顶部开始 */
+        background-color: #fafafa;   /* 更柔和 */
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        padding: 1em;
     }
 
     /* 中间正文区域 */
@@ -34,29 +40,34 @@
         min-width: 0; /* 防止内容溢出 */
         line-height: 1.7;
         font-size: 1.05em;
-        color: var(--content);
     }
 
     /* 右侧最新文章栏 */
     .three-column-layout .recent-posts-sidebar {
-        height: fit-content; /* 高度适应内容 */
-        max-height: calc(100vh - 4rem); /* 最大高度限制 */
-        overflow-y: auto; /* 内容过多时滚动 */
         position: sticky;
         top: 2rem;
+        height: fit-content;
+        max-height: calc(100vh - 4rem);
+        overflow-y: auto;
         font-size: 0.95em;
         border: 1px solid var(--border);
-        background: var(--code-bg);
-        border-radius: var(--radius);
-        padding: 1rem;
-        align-self: start; /* 确保从顶部开始 */
+        background-color: #fafafa;   /* 更柔和 */
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        padding: 1em;
+    }    
+
+    body.dark .three-column-layout .toc-sidebar .toc,
+    body.dark .three-column-layout .recent-posts-sidebar {
+        background-color: #1f1f1f;
+        box-shadow: 0 2px 6px rgba(255,255,255,0.05);
     }
+
 
     .three-column-layout .recent-posts-sidebar h3 {
         margin-top: 0;
         margin-bottom: 1rem;
         font-size: 1.1em;
-        color: var(--primary);
     }
 
     .three-column-layout .recent-posts-sidebar ul {
@@ -73,7 +84,6 @@
 
     .three-column-layout .recent-posts-sidebar time {
         display: block;
-        color: var(--secondary);
         font-size: 0.85em;
         margin-top: 0.25rem;
     }

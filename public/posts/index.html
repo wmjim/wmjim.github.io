@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -9,17 +9,17 @@
 <meta name="keywords" content="">
 <meta name="description" content="Posts - Mengw&#39;s Blog">
 <meta name="author" content="mengw">
-<link rel="canonical" href="http://localhost:1313/posts/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.4a0731a6d9c6503399482b9e96b7eba38764b76e794e600e9ec54930cc6feb57.css" integrity="sha256-SgcxptnGUDOZSCuelrfro4dkt255TmAOnsVJMMxv61c=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/images/avatar.jpg">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="canonical" href="https://wmjim.github.io/posts/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.732d4ebf5c303dcf1dcf616d5213c8aeb66a8c435619677995fc7153a170e253.css" integrity="sha256-cy1Ov1wwPc8dz2FtUhPIrrZqjENWGWd5lfxxU6Fw4lM=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://wmjim.github.io/images/avatar.jpg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wmjim.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wmjim.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://wmjim.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://wmjim.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/posts/feed.xml" title="rss">
-<link rel="alternate" hreflang="zh" href="http://localhost:1313/posts/">
+<link rel="alternate" type="application/rss+xml" href="https://wmjim.github.io/posts/feed.xml" title="rss">
+<link rel="alternate" hreflang="zh" href="https://wmjim.github.io/posts/">
 <noscript>
     <style>
         #theme-toggle,
@@ -28,7 +28,35 @@
         }
 
     </style>
-</noscript><meta property="og:url" content="http://localhost:1313/posts/">
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://wmjim.github.io/posts/">
   <meta property="og:site_name" content="Mengw&#39;s Blog">
   <meta property="og:title" content="Posts">
   <meta property="og:description" content="个人博客，记录和分享">
@@ -48,7 +76,7 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "http://localhost:1313/posts/"
+      "item": "https://wmjim.github.io/posts/"
     }
   ]
 }
@@ -60,6 +88,10 @@
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
     }
 
 </script>
@@ -67,8 +99,8 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Mengw&#39;s Blog (Alt + H)">
-                <img src="http://localhost:1313/images/avatar.jpg" alt="" aria-label="logo"
+            <a href="https://wmjim.github.io/" accesskey="h" title="Mengw&#39;s Blog (Alt + H)">
+                <img src="https://wmjim.github.io/images/avatar.jpg" alt="" aria-label="logo"
                     height="35">Mengw&#39;s Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
@@ -95,37 +127,37 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="🏠 主页">
+                <a href="https://wmjim.github.io/" title="🏠 主页">
                     <span>🏠 主页</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/posts/" title="📚 文章">
+                <a href="https://wmjim.github.io/posts/" title="📚 文章">
                     <span class="active">📚 文章</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives/" title="⏱ 时间轴">
+                <a href="https://wmjim.github.io/archives/" title="⏱ 时间轴">
                     <span>⏱ 时间轴</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="🏷️ 标签">
+                <a href="https://wmjim.github.io/tags/" title="🏷️ 标签">
                     <span>🏷️ 标签</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories/" title="🧩 分类">
+                <a href="https://wmjim.github.io/categories/" title="🧩 分类">
                     <span>🧩 分类</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="🔎 搜索 (Alt &#43; /)" accesskey=/>
+                <a href="https://wmjim.github.io/search/" title="🔎 搜索 (Alt &#43; /)" accesskey=/>
                     <span>🔎 搜索</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/about/" title="👤 关于">
+                <a href="https://wmjim.github.io/about/" title="👤 关于">
                     <span>👤 关于</span>
                 </a>
             </li>
@@ -133,37 +165,15 @@
     </nav>
 </header>
 <main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="http://localhost:1313/">主页</a></div>
+<header class="page-header"><div class="breadcrumbs"><a href="https://wmjim.github.io/">主页</a></div>
   <h1>
     Posts
   </h1>
 </header>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">博客备忘录
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>这篇文章主要用来记录博客系统在使用过程中的一些必要记录的东西。
-核心框架：hugo 主题：PaperMod 这是一个流程图：
-博客框架 一个标准的 Hugo 项目包含以下目录：
-my-blog/ |—— archetypes/ # 用于新内容的模板 |—— assets/ # 全局资源 |—— contents/ # 组成站点内容的md文件和页面资源 |—— data/ # 用于增强内容、配置、本地化和导航的数据文件 |—— i18n/ # 多语言站点的翻译表 |—— layouts/ # 自定义页面布局 |—— public/ # Hugo 构建输出的静态文件（部署用） |—— resource/ # |—— statics/ # 存放静态资源（图片、favicon、CSS） |—— themes/ # 主题目录 |—— hugo.toml # 站点配置文件 Hugo 项目骨架详释 常用命令 # 向你的网站添加一个新页面 hugo new posts/标题.md # 启动 Hugo 的开发服务器以查看网站 hugo server -D # 构建站点，将文件发布到 public 目录 hugo 自定义字体 字体控制策略 文章正文与标题： 中文字体：PingFang SC 英文字体：Source Serif Pro 代码（行内 &amp; 块级）： 中文字体：PingFang SC 英文字体：Maple Mono 网站其它内容（导航、侧边栏等）： 中文字体：PingFang SC 英文字体：Source Serif Pro 字体回退机制：
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-10-17 16:22:19 +0800 CST'>2025年10月17日</span>&nbsp;·&nbsp;<span>5 分钟</span>&nbsp;·&nbsp;<span>mengw</span></footer>
-  <a class="entry-link" aria-label="post link to 博客备忘录" href="http://localhost:1313/posts/%E5%8D%9A%E5%AE%A2%E5%A4%87%E5%BF%98%E5%BD%95/"></a>
-</article>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/">Mengw&#39;s Blog</a></span> · 
+        <span>&copy; 2025 <a href="https://wmjim.github.io/">Mengw&#39;s Blog</a></span> · 
 
     <span>
         Powered by

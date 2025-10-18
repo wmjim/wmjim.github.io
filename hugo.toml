@@ -83,7 +83,7 @@ EndYear = 2025
     env = "production"
     author = "mengw"
     description = "个人博客，记录和分享"
-    defaultTheme = "light"
+    defaultTheme = "auto"
     ShowCodeCopyButtons = true      # 代码块显示复制按钮
     ShowReadingTime = true          # 显示阅读时长
     ShowPostNavLinks = true         # 显示上/下一篇文章
@@ -92,10 +92,7 @@ EndYear = 2025
     ShowLastMod = true              # 显示最后修改时间
     ShowToc = true                  # 显示目录
     TocOpen = true                  # 目录默认展开）
-    # comments = true               # 全局启用评论
-    math = true                     # 全局支持 LaTex
-    # search = true
-    # search_placeholder = "搜索..." # 可选：更改默认的搜索框占位符文本
+    # enableMath = true               # 所有页面启用 LaTex
     enableSearch = true
     # 个人卡片页
     [params.profileMode]
@@ -116,10 +113,12 @@ EndYear = 2025
         icon = "/images/avatar.jpg"
         iconHeight = 35
     [params.assets]
+        disableScrollToTop = false # 同时显示回到顶部按钮
         favicon = "/images/avatar.jpg"
-        customCSS = [   "css/extended/custom.css",
-                        "css/extended/three-columns.css"
-                    ]
+        # customCSS = [   "css/extended/fonts.css",
+        #                 "css/extended/three-columns.css",
+        #                 "css/extended/styles.css"
+        #             ]
     [params.cover]
         hidden = false         # 不隐藏封面
         hiddenInList = false   # 列表页显示封面
@@ -138,15 +137,12 @@ EndYear = 2025
         # 开启功能
     # 编辑此页
     [params.editPost]
-        URL = "https://github.com/wmjim/MyBlog/edit/main/content"
+        URL = "https://github.com/wmjim/wmjim.github.io/edit/main/content"
         Text = "编辑此页"
         appendFilePath = true
-    # 添加评论系统
-    [params.utteranc]
-        enable = true
-        repo = "wmjim/blog-comments"
-        issueTerm = "pathname"
-        theme = "preferred-color-scheme"
+    # 添加 giscus 评论系统
+    [params.giscus]
+        enable = true  # 添加这个开关
 
 
 # 社交链接 - 使用数组格式

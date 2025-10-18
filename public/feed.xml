@@ -2,79 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Mengw&#39;s Blog</title>
-    <link>http://localhost:1313/</link>
+    <link>https://wmjim.github.io/</link>
     <description>Recent content on Mengw&#39;s Blog</description>
     <generator>Hugo -- 0.151.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 17 Oct 2025 16:22:19 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/feed.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>博客备忘录</title>
-      <link>http://localhost:1313/posts/%E5%8D%9A%E5%AE%A2%E5%A4%87%E5%BF%98%E5%BD%95/</link>
-      <pubDate>Fri, 17 Oct 2025 16:22:19 +0800</pubDate>
-      <guid>http://localhost:1313/posts/%E5%8D%9A%E5%AE%A2%E5%A4%87%E5%BF%98%E5%BD%95/</guid>
-      <description>&lt;p&gt;这篇文章主要用来记录博客系统在使用过程中的一些必要记录的东西。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;核心框架：&lt;a href=&#34;https://gohugo.io/&#34;&gt;hugo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;主题：&lt;a href=&#34;https://github.com/adityatelange/hugo-PaperMod&#34;&gt;PaperMod&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;这是一个流程图：&lt;/p&gt;
-&lt;h2 id=&#34;博客框架&#34;&gt;博客框架&lt;/h2&gt;
-&lt;p&gt;一个标准的 Hugo 项目包含以下目录：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;my-blog/
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|—— archetypes/   &lt;span style=&#34;color:#6272a4&#34;&gt;# 用于新内容的模板&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|—— assets/       &lt;span style=&#34;color:#6272a4&#34;&gt;# 全局资源&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|—— contents/     &lt;span style=&#34;color:#6272a4&#34;&gt;# 组成站点内容的md文件和页面资源&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|—— data/         &lt;span style=&#34;color:#6272a4&#34;&gt;# 用于增强内容、配置、本地化和导航的数据文件&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|—— i18n/         &lt;span style=&#34;color:#6272a4&#34;&gt;# 多语言站点的翻译表&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|—— layouts/      &lt;span style=&#34;color:#6272a4&#34;&gt;# 自定义页面布局&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|—— public/       &lt;span style=&#34;color:#6272a4&#34;&gt;# Hugo 构建输出的静态文件（部署用）&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|—— resource/     &lt;span style=&#34;color:#6272a4&#34;&gt;#&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|—— statics/      &lt;span style=&#34;color:#6272a4&#34;&gt;# 存放静态资源（图片、favicon、CSS）&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|—— themes/       &lt;span style=&#34;color:#6272a4&#34;&gt;# 主题目录&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|—— hugo.toml     &lt;span style=&#34;color:#6272a4&#34;&gt;# 站点配置文件&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://hugo.opendocs.io/getting-started/directory-structure/#%e7%9b%ae%e5%bd%95&#34;&gt;Hugo 项目骨架详释&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;常用命令&#34;&gt;常用命令&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# 向你的网站添加一个新页面&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo new posts/标题.md
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# 启动 Hugo 的开发服务器以查看网站&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo server -D
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# 构建站点，将文件发布到 public 目录&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;自定义字体&#34;&gt;自定义字体&lt;/h2&gt;
-&lt;h3 id=&#34;字体控制策略&#34;&gt;字体控制策略&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章正文与标题&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;中文字体：&lt;code&gt;PingFang SC&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;英文字体：&lt;code&gt;Source Serif Pro&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;代码&lt;/strong&gt;（行内 &amp;amp; 块级）：
-&lt;ul&gt;
-&lt;li&gt;中文字体：&lt;code&gt;PingFang SC&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;英文字体：&lt;code&gt;Maple Mono&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;网站其它内容&lt;/strong&gt;（导航、侧边栏等）：
-&lt;ul&gt;
-&lt;li&gt;中文字体：&lt;code&gt;PingFang SC&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;英文字体：&lt;code&gt;Source Serif Pro&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;字体回退机制&lt;/strong&gt;：&lt;/p&gt;</description>
-    </item>
+    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://wmjim.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>👤 关于我</title>
-      <link>http://localhost:1313/about/</link>
+      <link>https://wmjim.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/about/</guid>
+      <guid>https://wmjim.github.io/about/</guid>
       <description>&lt;p&gt;你好，欢迎您来到我的个人博客！&lt;/p&gt;
 &lt;h2 id=&#34;-关于我&#34;&gt;😊 关于我&lt;/h2&gt;
 &lt;p&gt;我目前是一名嵌入式软件工程师，毕业于中国地质大学（武汉）。&lt;/p&gt;
@@ -82,16 +20,16 @@
     </item>
     <item>
       <title>🏷️ 标签</title>
-      <link>http://localhost:1313/tags/</link>
+      <link>https://wmjim.github.io/tags/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/</guid>
+      <guid>https://wmjim.github.io/tags/</guid>
       <description></description>
     </item>
     <item>
       <title>🧩 分类</title>
-      <link>http://localhost:1313/categories/</link>
+      <link>https://wmjim.github.io/categories/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/</guid>
+      <guid>https://wmjim.github.io/categories/</guid>
       <description></description>
     </item>
   </channel>

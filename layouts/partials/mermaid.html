@@ -4,6 +4,21 @@
     href="https://cdn.jsdelivr.net/npm/mermaid@latest/dist/mermaid.min.css"
 />
 
+<style>
+  .post-content .mermaid {
+    display: flex !important;
+    justify-content: center !important;
+    margin: 1.5em auto !important;
+    width: 100% !important;
+  }
+  .post-content .mermaid svg {
+    display: block !important;
+    margin: auto !important;
+    max-width: 100% !important;
+  }
+</style>
+
+
 <!-- Mermaid JS -->
 <script>
     // 延迟初始化，确保 Hugo 内容已渲染
@@ -13,12 +28,27 @@
             "https://cdn.jsdelivr.net/npm/mermaid@latest/dist/mermaid.min.js";
         script.onload = function () {
             mermaid.initialize({
-                startOnLoad: true,
+                startOnLoad: false,
                 theme: "dark",
                 securityLevel: "loose",
+                flowchart: {
+                    useMaxWidth: true,
+                    htmlLabels: true
+                },
+                themeVariables: {
+                    fontFamily: "var(--font-article)",
+                    fontSize: '14px',
+                }
             });
-            // 手动触发渲染，确保所有图表都被处理
-            mermaid.init(undefined, ".language-mermaid");
+            // 转换并渲染所有mermaid代码块
+            document.querySelectorAll(".language-mermaid").forEach(function(el) {
+                const parent = el.parentElement;
+                const code = el.textContent;
+                parent.outerHTML = `<div class="mermaid">${code}</div>`;
+            });
+
+            // 重新获取所有mermaid元素并渲染
+            mermaid.init(undefined, document.querySelectorAll(".mermaid"));
         };
         document.head.appendChild(script);
     });
