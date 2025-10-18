@@ -1,5 +1,5 @@
 ---
-title: "🏷️ 标签"
+title: "🔖 标签"
 layout: "tags"
 url: "/tags/"
 summary: "tags"

@@ -4,8 +4,8 @@
 <header class="page-header">
     <h1>
         <!-- 分离 emoji 和文字 -->
-        <span>🔖</span>
-        <span>标签</span>
+        <span>📁</span>
+        <span>分类</span>
     </h1>
     {{- if .Description }}
     <div class="post-description">
@@ -15,23 +15,21 @@
 </header>
 {{- end }}
 
-{{- $taxonomies := .Site.Taxonomies.tags }}
+{{- $taxonomies := .Site.Taxonomies.categories }}
 {{- if gt (len $taxonomies) 0 }}
-    {{- $.Scratch.Set "tagIndex" 0 }}
-    <ul class="terms-tags">
+    <ul class="terms-tags categories-tags">
         {{- range $name, $taxonomy := $taxonomies }}
-            <!-- 计算权重：1-5之间 -->
-            <li data-count="{{ $taxonomy.Count }}">
-                <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}">
+            <li>
+                <a href="{{ "/categories/" | relLangURL }}{{ $name | urlize }}">
                     {{- $name -}}
-                    <span class="tag-count">{{ .Count }}</span>
+                    <sup><strong>{{- .Count -}}</strong></sup>
                 </a>
             </li>
         {{- end }}
     </ul>
 {{- else }}
     <div class="terms-tags-empty">
-        <p>暂时还没有标签哦~ 标签会随着文章的发布逐渐增加 📝</p>
+        <p>暂时还没有分类哦~ 分类会随着文章的发布逐渐增加 📝</p>
         <p>敬请期待下一篇文章！✨</p>
     </div>
 {{- end }}

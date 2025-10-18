@@ -55,13 +55,13 @@ EndYear = 2025
 
     [[menu.main]]
         identifier = "tags"
-        name = "🏷️ 标签"
+        name = "🔖 标签"
         url = "/tags/"
         weight = 4
 
     [[menu.main]]
         identifier = "categories"
-        name = "🧩 分类"
+        name = "📁 分类"
         url = "/categories/"
         weight = 5
 
