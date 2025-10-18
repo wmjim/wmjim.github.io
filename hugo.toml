@@ -37,45 +37,38 @@ EndYear = 2025
     # 主菜单
 [menu]
     [[menu.main]]
-        identifier = "home"
-        name = "🏠 主页"
-        url = "/"
-        weight = 1
-
-    [[menu.main]]
-        identifier = "posts"
-        name = "📚 文章"
+        name = "📰 文章"
         url = "/posts/"
-        weight = 2
+        weight = 1
 
     [[menu.main]]
         name = "⏱ 时间轴"
         url = "/archives/"
-        weight = 3
+        weight = 2
 
     [[menu.main]]
         identifier = "tags"
         name = "🔖 标签"
         url = "/tags/"
-        weight = 4
+        weight = 3
 
     [[menu.main]]
         identifier = "categories"
         name = "📁 分类"
         url = "/categories/"
-        weight = 5
+        weight = 4
 
     [[menu.main]]
         identifier = "search"
         name = "🔎 搜索"
         url = "/search/"
-        weight = 6
+        weight = 5
 
     [[menu.main]]
         identifier = "about"
         name = "👤 关于"
         url = "/about/"
-        weight = 7
+        weight = 6
 
 
 
@@ -87,7 +80,7 @@ EndYear = 2025
     ShowCodeCopyButtons = true      # 代码块显示复制按钮
     ShowReadingTime = true          # 显示阅读时长
     ShowPostNavLinks = true         # 显示上/下一篇文章
-    ShowBreadCrumbs = true          # 显示面包屑导航
+    # ShowBreadCrumbs = true          # 显示面包屑导航
     ShowWordCounts = true           # 显示字数统计
     ShowLastMod = true              # 显示最后修改时间
     ShowToc = true                  # 显示目录
