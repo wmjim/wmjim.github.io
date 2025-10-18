@@ -1,17 +1,101 @@
-<script
-    src="https://giscus.app/client.js"
-    data-repo="wmjim/wmjim.github.io"
-    data-repo-id="R_kgDOQEhMWg"
-    data-category="Q&A"
-    data-category-id="DIC_kwDOQEhMWs4CwxiD"
-    data-mapping="pathname"
-    data-strict="0"
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="bottom"
-    data-theme="gruvbox_light"
-    data-lang="en"
-    data-loading="lazy"
-    crossorigin="anonymous"
-    async
-></script>
+<div id="giscus-container"></div>
+
+<script>
+    (function() {
+        // helper: detect current theme (site uses .dark on body)
+        function getSiteTheme() {
+            return document.body.classList.contains('dark') ? 'dark' : 'light';
+        }
+
+        // create giscus script dynamically so we can set data-theme before it loads
+        var container = document.getElementById('giscus-container');
+        var script = document.createElement('script');
+        script.src = 'https://giscus.app/client.js';
+        script.async = true;
+        script.crossOrigin = 'anonymous';
+        script.id = 'giscus-script';
+
+        // required data attributes (copy from previous static embed)
+        script.setAttribute('data-repo', 'wmjim/wmjim.github.io');
+        script.setAttribute('data-repo-id', 'R_kgDOQEhMWg');
+        script.setAttribute('data-category', 'Q&A');
+        script.setAttribute('data-category-id', 'DIC_kwDOQEhMWs4CwxiD');
+        script.setAttribute('data-mapping', 'pathname');
+        script.setAttribute('data-strict', '0');
+        script.setAttribute('data-reactions-enabled', '1');
+        script.setAttribute('data-emit-metadata', '0');
+        script.setAttribute('data-input-position', 'bottom');
+        script.setAttribute('data-lang', 'en');
+        script.setAttribute('data-loading', 'lazy');
+
+        // set initial theme based on current site theme
+        script.setAttribute('data-theme', getSiteTheme());
+
+        container.appendChild(script);
+
+        // postMessage helper with a small retry when iframe not ready
+        function postThemeToGiscus(themeName, attemptsLeft) {
+            attemptsLeft = typeof attemptsLeft === 'number' ? attemptsLeft : 5;
+            var iframe = document.querySelector('iframe.giscus-frame');
+            if (!iframe) {
+                if (attemptsLeft > 0) {
+                    setTimeout(function() { postThemeToGiscus(themeName, attemptsLeft - 1); }, 300);
+                }
+                return;
+            }
+
+            try {
+                const message = {
+                    giscus: {
+                        setConfig: {
+                            theme: themeName
+                        }
+                    }
+                };
+                iframe.contentWindow.postMessage(message, 'https://giscus.app');
+            } catch (e) {
+                console.warn('Failed to postMessage to giscus iframe:', e);
+            }
+        }
+
+        // when giscus signals it's loaded, ensure theme matches
+        window.addEventListener('message', function(event) {
+            if (event.origin !== 'https://giscus.app') return;
+            var data = event.data || {};
+            if (data.giscus && data.giscus.loaded) {
+                // ensure theme is set after giscus finishes loading
+                postThemeToGiscus(getSiteTheme());
+                return;
+            }
+
+            if (data.giscus && data.giscus.error) {
+                console.error('Giscus error:', data.giscus.error);
+            }
+        });
+
+        // observe body class changes for theme toggles
+        var lastTheme = getSiteTheme();
+        var observer = new MutationObserver(function(mutations) {
+            var current = getSiteTheme();
+            if (current !== lastTheme) {
+                lastTheme = current;
+                requestAnimationFrame(function() {
+                    postThemeToGiscus(current);
+                });
+            }
+        });
+        observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+
+        // also respond to prefers-color-scheme changes (if site follows system)
+        try {
+            var mq = window.matchMedia('(prefers-color-scheme: dark)');
+            if (mq && typeof mq.addEventListener === 'function') {
+                mq.addEventListener('change', function() { postThemeToGiscus(getSiteTheme()); });
+            }
+        } catch (e) {
+            // ignore on older browsers
+        }
+
+    })();
+</script>
+
