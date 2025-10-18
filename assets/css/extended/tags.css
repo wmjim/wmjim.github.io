@@ -25,7 +25,8 @@
 }
 
 @keyframes gradientText {
-    0%, 100% {
+    0%,
+    100% {
         filter: hue-rotate(0deg);
     }
     50% {
@@ -60,43 +61,33 @@
     padding: 0;
 }
 
-/* 标签大小根据数量设置 
-   - 数量1-2: 基础大小
-   - 数量3-5: 中等大小
-   - 数量>5: 大号字体
-*/
+/* 简化的标签大小规则 */
 .terms-tags li[data-count="1"],
-.terms-tags li[data-count="2"] { 
-    font-size: 1rem; 
+.terms-tags li[data-count="2"] {
+    font-size: 1rem;
 }
 
 .terms-tags li[data-count="3"],
 .terms-tags li[data-count="4"],
-.terms-tags li[data-count="5"] { 
-    font-size: 1.4rem; 
+.terms-tags li[data-count="5"] {
+    font-size: 1.4rem;
 }
 
 .terms-tags li[data-count="6"],
-.terms-tags li[data-count="7"] { 
-    font-size: 1.8rem; 
+.terms-tags li[data-count="7"] {
+    font-size: 1.8rem;
 }
 
 .terms-tags li[data-count="8"],
-.terms-tags li[data-count="9"] { 
-    font-size: 2.2rem; 
+.terms-tags li[data-count="9"] {
+    font-size: 2.2rem;
 }
 
-.terms-tags li[data-count="10"] { 
-    font-size: 2.6rem; 
+.terms-tags li[data-count="10"] {
+    font-size: 2.6rem;
 }
 
-
-/* 标签项样式 */
-.terms-tags li {
-    margin: 0;
-    transition: all 0.3s ease;
-}
-
+/* 简化的颜色规则 */
 .terms-tags a {
     text-decoration: none;
     display: inline-flex;
@@ -107,45 +98,37 @@
     padding: 0.2em 0.1em;
 }
 
-/* 颜色分配 - 根据文章数量设置不同的颜色 */
+/* 合并的颜色分配 */
 .terms-tags li[data-count="1"] a,
-.terms-tags li[data-count="2"] a { 
+.terms-tags li[data-count="2"] a {
     color: #8395a7;
 }
-
-.terms-tags li[data-count="3"] a { 
+.terms-tags li[data-count="3"] a {
     color: #70a1ff;
 }
-
-.terms-tags li[data-count="4"] a { 
+.terms-tags li[data-count="4"] a {
     color: #4834d4;
 }
-
-.terms-tags li[data-count="5"] a { 
+.terms-tags li[data-count="5"] a {
     color: #686de0;
 }
-
-.terms-tags li[data-count="6"] a { 
+.terms-tags li[data-count="6"] a {
     color: #e056fd;
 }
-
-.terms-tags li[data-count="7"] a { 
+.terms-tags li[data-count="7"] a {
     color: #ff7675;
 }
-
-.terms-tags li[data-count="8"] a { 
+.terms-tags li[data-count="8"] a {
     color: #ff6b6b;
 }
-
-.terms-tags li[data-count="9"] a { 
+.terms-tags li[data-count="9"] a {
     color: #ff4757;
 }
-
-.terms-tags li[data-count="10"] a { 
+.terms-tags li[data-count="10"] a {
     color: #ff3f34;
 }
 
-/* 标签数量的样式 */
+/* 标签数量样式 */
 .terms-tags .tag-count {
     position: relative;
     top: -0.7em;
@@ -157,113 +140,27 @@
     line-height: 0;
     vertical-align: baseline;
     padding: 0 0.15em;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-
-/* 悬停效果 */
+/* 合并的悬停效果 */
 .terms-tags a:hover {
     opacity: 0.8;
+    filter: brightness(1.2);
+    transform: scale(1.1) translateY(-2px);
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .terms-tags a:hover .tag-count {
     opacity: 1;
 }
 
-/* 悬停效果 */
-.terms-tags a:hover {
-    filter: brightness(1.2);
-    transform: scale(1.1);
+body.dark .terms-tags a:hover {
+    background: #2e2e33;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-
-/* 根据权重设置不同颜色 */
-.terms-tags li[data-weight="5"] a {
-    background: #3498db;
-    color: white;
-}
-.terms-tags li[data-weight="4"] a {
-    background: #2ecc71;
-    color: white;
-}
-.terms-tags li[data-weight="3"] a {
-    background: #e74c3c;
-    color: white;
-}
-.terms-tags li[data-weight="2"] a {
-    background: #f1c40f;
-    color: white;
-}
-.terms-tags li[data-weight="1"] a {
-    background: #95a5a6;
-    color: white;
-}
-
-/* 悬停效果 */
-.terms-tags a:hover {
-    transform: scale(1.1) translateZ(30px);
-    opacity: 1;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-/* 随机漂浮动画 */
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0) rotate(0);
-    }
-    25% {
-        transform: translateY(-5px) rotate(2deg);
-    }
-    75% {
-        transform: translateY(5px) rotate(-2deg);
-    }
-}
-
-/* 标签动画效果 */
-.terms-tags li {
-    animation: float 3s ease-in-out infinite;
-    animation-delay: calc(var(--tag-index) * 0.2s);
-}
-
-/* 随机旋转 */
-.terms-tags li:nth-child(3n) { transform: rotate(1deg); }
-.terms-tags li:nth-child(3n+1) { transform: rotate(-1deg); }
-.terms-tags li:nth-child(3n+2) { transform: rotate(2deg); }
-
-/* 悬停效果 */
-.terms-tags a:hover {
-    transform: translateY(-5px) scale(1.1);
-    background: none;
-    color: var(--theme);
-    /* border-color: var(--primary); */
-    /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); */
-    z-index: 1;
-}
-
-.terms-tags a:hover sup {
-    background: none;
-    color: var(--primary);
-    transform: scale(1.2);
-}
-
-/* 标签组动画 */
-.terms-tags li {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.5s ease forwards;
-}
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.terms-tags li:nth-child(1) { animation-delay: 0.1s; }
-.terms-tags li:nth-child(2) { animation-delay: 0.2s; }
-.terms-tags li:nth-child(3) { animation-delay: 0.3s; }
-.terms-tags li:nth-child(4) { animation-delay: 0.4s; }
-.terms-tags li:nth-child(5) { animation-delay: 0.5s; }
 
 /* 空状态样式 */
 .terms-tags-empty {
