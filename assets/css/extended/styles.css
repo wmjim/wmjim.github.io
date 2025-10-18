@@ -67,4 +67,30 @@ body.dark b, strong {
 }
 
 
+/* ==========================================
+   优化链接样式
+   ========================================== */
+/* 亮色模式：默认链接样式 */
+.three-column-layout .post-content-wrapper .post-content a {
+  color: #0066cc;
+  transition: color 0.2s ease, background-color 0.2s ease; /* 平滑过渡效果 */
+}
 
+/* 亮色模式：鼠标悬停时的样式 */
+.three-column-layout .post-content-wrapper .post-content a:hover {
+  color: #003399; /* 深蓝色 */
+  background-color: rgba(0, 102, 204, 0.05); /* 浅背景高亮 */
+}
+
+/* 暗色模式：默认链接样式 */
+body.dark .post-content-wrapper .post-content a {
+    color: #6495ed; /* 紫罗兰蓝色，高亮但不刺眼 */
+    transition: color 0.2s ease, background-color 0.2s ease; /* 平滑过渡效果 */
+}
+
+
+/* 暗色模式：鼠标悬停时的样式 */
+body.dark .post-content-wrapper .post-content a:hover {
+  color: #87cefa; /* 更明亮的浅蓝色 */
+  background-color: rgba(255, 255, 255, 0.05); /* 微妙的白色背景高亮 */
+}
