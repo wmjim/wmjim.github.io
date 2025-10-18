@@ -1,0 +1,244 @@
+/* 归档页面样式 */
+
+/* 标题区域样式 */
+.archives-header {
+    margin: 2rem auto 3rem;
+    text-align: center;
+}
+
+.archives-header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.archive-description {
+    color: var(--secondary);
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+/* 归档容器 */
+.archive-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* 年份样式 */
+.archive-year {
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.archive-year::before {
+    content: '';
+    position: absolute;
+    left: 2.5rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+    opacity: 0.5;
+}
+
+.archive-year-header {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.archive-year-link {
+    color: var(--primary);
+    text-decoration: none;
+    position: relative;
+    padding-left: 3.5rem;
+}
+
+.archive-year-link::before {
+    content: '';
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    width: 1rem;
+    height: 2px;
+    background: var(--primary);
+    transform: translateY(-50%);
+}
+
+/* 月份样式 */
+.archive-month {
+    margin-left: 4rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.archive-month::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem;
+    top: 0.8rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--border);
+}
+
+.archive-month-header {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+/* 文章条目样式 */
+.archive-entry {
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    position: relative;
+    background: var(--entry);
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--border);
+}
+
+.archive-entry:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.archive-entry::before {
+    content: '';
+    position: absolute;
+    left: -1.25rem;
+    top: 1.6rem;
+    width: 0.35rem;
+    height: 0.35rem;
+    border-radius: 50%;
+    background: var(--secondary);
+    opacity: 0.6;
+}
+
+.archive-entry-title {
+    font-size: 1.1rem;
+    margin: 0 0 0.5rem;
+    line-height: 1.4;
+}
+
+.archive-entry-link {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.archive-entry-link:hover {
+    color: var(--content);
+}
+
+/* 文章元信息样式 */
+.archive-meta {
+    font-size: 0.9rem;
+    color: var(--secondary);
+}
+
+.archive-date,
+.archive-author,
+.archive-reading-time {
+    display: inline-block;
+}
+
+/* 计数样式 */
+.archive-count {
+    font-size: 0.9rem;
+    color: var(--secondary);
+    margin-left: 0.5rem;
+    font-weight: normal;
+}
+
+/* 草稿标记 */
+.entry-draft {
+    font-size: 0.8rem;
+    color: var(--secondary);
+    margin-left: 0.5rem;
+    font-weight: normal;
+}
+
+/* 暗色主题适配 */
+body.dark .archive-year::before,
+body.dark .archive-month::before,
+body.dark .archive-entry::before {
+    background: var(--border);
+}
+
+body.dark .archive-entry {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .archive-entry:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 年份折叠按钮样式 */
+.toggle-year {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    color: var(--secondary);
+    transition: transform 0.3s ease;
+}
+
+.toggle-year:hover {
+    color: var(--primary);
+}
+
+.toggle-year svg {
+    transition: transform 0.3s ease;
+}
+
+.archive-year.mobile-collapsed .toggle-year svg {
+    transform: rotate(-90deg);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .archive-container {
+        padding: 0 0.5rem;
+    }
+
+    .archive-year::before {
+        left: 1.5rem;
+    }
+
+    .archive-year-link {
+        padding-left: 2.5rem;
+    }
+
+    .archive-year-link::before {
+        left: 1rem;
+        width: 0.8rem;
+    }
+
+    .archive-month {
+        margin-left: 2.5rem;
+    }
+
+    /* 显示折叠按钮 */
+    .toggle-year {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* 折叠状态 */
+    .archive-year.mobile-collapsed .archive-month {
+        display: none;
+    }
+
+    .archive-year-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}

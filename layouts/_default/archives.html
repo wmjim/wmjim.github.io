@@ -1,0 +1,127 @@
+{{- define "main" }}
+
+<header class="page-header archives-header">
+  <h1>
+    {{ .Title }}
+    {{- if (.Param "ShowRssButtonInSectionTermList") }}
+    {{- $rss := (.OutputFormats.Get "rss") }}
+    {{- if (eq .Kind `page`) }}
+    {{- $rss = (.Parent.OutputFormats.Get "rss") }}
+    {{- end }}
+    {{- with $rss }}
+    <a href="{{ .RelPermalink }}" title="RSS" aria-label="RSS">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" height="24">
+        <path d="M4 11a9 9 0 0 1 9 9" />
+        <path d="M4 4a16 16 0 0 1 16 16" />
+        <circle cx="5" cy="19" r="1" />
+      </svg>
+    </a>
+    {{- end }}
+    {{- end }}
+  </h1>
+  {{- if .Description }}
+  <div class="archive-description">
+    {{ .Description | markdownify }}
+  </div>
+  {{- end }}
+</header>
+
+{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+
+{{- if site.Params.ShowAllPagesInArchive }}
+{{- $pages = site.RegularPages }}
+{{- end }}
+
+<div class="archive-container">
+  {{- $years := $pages.GroupByPublishDate "2006" }}
+{{- $currentYear := now.Format "2006" }}
+{{- range $yearIndex, $year := $years }}
+  {{- if ne .Key "0001" }}
+  {{- $isCurrentYear := eq .Key $currentYear }}
+  <div class="archive-year{{ if not $isCurrentYear }} mobile-collapsed{{ end }}">
+    {{- $yearNum := replace .Key "0001" "" }}
+    <h2 class="archive-year-header">
+      <a href="#{{ $yearNum }}" id="{{ $yearNum }}" class="archive-year-link">
+        {{- $yearNum -}}
+        <sup class="archive-count">{{ len .Pages }}</sup>
+      </a>
+      <button class="toggle-year" aria-label="展开/折叠年份" title="展开/折叠">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+    </h2>
+
+    {{- range .Pages.GroupByDate "January" }}
+    <div class="archive-month">
+      <h3 class="archive-month-header">
+        <a href="#{{ $year }}-{{ .Key }}" id="{{ $year }}-{{ .Key }}" class="archive-month-link">
+          {{- .Key -}}
+          <sup class="archive-count">{{ len .Pages }}</sup>
+        </a>
+      </h3>
+
+      <div class="archive-posts">
+        {{- range .Pages }}
+        <article class="archive-entry">
+          <h4 class="archive-entry-title">
+            <a href="{{ .Permalink }}" class="archive-entry-link">
+              {{- .Title }}
+              {{- if .Draft }}<sup class="entry-draft">草稿</sup>{{- end }}
+            </a>
+          </h4>
+          <div class="archive-meta">
+            <span class="archive-date">{{ .Date.Format "2006-01-02" }}</span>
+            {{- if .Params.author }}<span class="archive-author">· {{ .Params.author }}</span>{{- end }}
+            {{- if .ReadingTime }}<span class="archive-reading-time">· {{ .ReadingTime }} 分钟</span>{{- end }}
+          </div>
+        </article>
+        {{- end }}
+      </div>
+    </div>
+    {{- end }}
+  </div>
+  {{- end }}
+  {{- end }}
+</div>
+
+<script>
+  // 移动端归档页面年份展开/折叠功能
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggleButtons = document.querySelectorAll('.toggle-year');
+    
+    toggleButtons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        const yearSection = this.closest('.archive-year');
+        yearSection.classList.toggle('mobile-collapsed');
+        
+        // 更新按钮状态
+        this.classList.toggle('expanded');
+      });
+    });
+
+    // 如果不是移动设备，移除 mobile-collapsed 类
+    function updateArchiveDisplay() {
+      const isMobile = window.innerWidth <= 768;
+      const yearSections = document.querySelectorAll('.archive-year');
+      
+      yearSections.forEach(section => {
+        if (!isMobile) {
+          section.classList.remove('mobile-collapsed');
+        } else if (!section.classList.contains('current-year')) {
+          section.classList.add('mobile-collapsed');
+        }
+      });
+    }
+
+    // 监听窗口大小变化
+    window.addEventListener('resize', updateArchiveDisplay);
+    
+    // 初始化时执行一次
+    updateArchiveDisplay();
+  });
+</script>
+
+{{- end }}
