@@ -2,11 +2,7 @@
 
 {{- if .Title }}
 <header class="page-header">
-    <h1>
-        <!-- 分离 emoji 和文字 -->
-        <span>📁</span>
-        <span>分类</span>
-    </h1>
+    <h1>{{ .Title }}</h1>
     {{- if .Description }}
     <div class="post-description">
         {{ .Description }}
@@ -15,18 +11,59 @@
 </header>
 {{- end }}
 
+{{/* 获取分类数据 */}}
 {{- $taxonomies := .Site.Taxonomies.categories }}
+
+{{/* 初始化分类描述存储 */}}
+{{- $.Scratch.Set "categoryDescriptions" dict }}
+
+{{/* 解析 Markdown 内容，提取分类和描述 */}}
+{{- $lines := split .Content "\n" }}
+{{- $currentCategory := "" }}
+
+{{/* 扫描每一行，查找分类和描述 */}}
+{{- range $lines }}
+    {{/* 检查是否是二级标题行 */}}
+    {{- if hasPrefix (trim . " ") "## " }}
+        {{- $currentCategory = trim (replace . "## " "") " " }}
+    {{/* 检查是否是描述行（以 > 开头） */}}
+    {{- else if and (hasPrefix (trim . " ") ">") $currentCategory }}
+        {{- $description := trim (replace (trim . " ") ">" "") " " }}
+        {{- $.Scratch.SetInMap "categoryDescriptions" $currentCategory $description }}
+    {{- end }}
+{{- end }}
+{{- range $lines }}
+    {{- if hasPrefix . "## " }}
+        {{- $categoryName := trim (trim . "#") " " }}
+        {{- $categories = $categories | append $categoryName }}
+    {{- end }}
+{{- end }}
+
 {{- if gt (len $taxonomies) 0 }}
-    <ul class="terms-tags categories-tags">
+    <div class="categories-container">
         {{- range $name, $taxonomy := $taxonomies }}
-            <li>
+            {{/* 获取分类描述 */}}
+            {{- $descriptions := $.Scratch.Get "categoryDescriptions" }}
+            {{- $description := index $descriptions $name }}
+            <div class="category-card">
                 <a href="{{ "/categories/" | relLangURL }}{{ $name | urlize }}">
-                    {{- $name -}}
-                    <sup><strong>{{- .Count -}}</strong></sup>
+                    <div class="category-content">
+                        <div class="category-header">
+                            <span class="category-name">{{- $name -}}</span>
+                            <span class="category-count">{{- .Count -}}</span>
+                        </div>
+                        <div class="category-description">
+                            {{- if $description }}
+                                {{- $description }}
+                            {{- else }}
+                                分类下的文章集合
+                            {{- end }}
+                        </div>
+                    </div>
                 </a>
-            </li>
+            </div>
         {{- end }}
-    </ul>
+    </div>
 {{- else }}
     <div class="terms-tags-empty">
         <p>暂时还没有分类哦~ 分类会随着文章的发布逐渐增加 📝</p>
