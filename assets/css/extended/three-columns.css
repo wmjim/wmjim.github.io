@@ -4,6 +4,7 @@
     body:has(.three-column-layout) .main {
         max-width: 1500px !important;
         margin: 0 auto;
+        padding-top: 80px !important; /* 覆盖默认的 padding-top，给导航栏留出更多空间 */
     }
 
     .three-column-layout {
@@ -19,14 +20,14 @@
     /* 左侧目录栏 */
     .three-column-layout .toc-sidebar {
         position: sticky;
-        top: 2rem;
+        top: calc(60px + 2rem); /* 导航栏高度(60px) + 期望的间距(2rem) */
         height: fit-content;
-        max-height: calc(100vh - 4rem);
+        max-height: calc(100vh - 60px - 2rem); /* 视口高度 - 导航栏高度 - 顶部间距 */
     }
 
     .three-column-layout .toc-sidebar .toc {
         height: fit-content;
-        max-height: calc(100vh - 4rem);
+        max-height: calc(100vh - 60px - 2rem);
         overflow-y: auto;
         font-size: 0.95em;
         background-color: #fafafa;   /* 更柔和 */
@@ -45,9 +46,9 @@
     /* 右侧最新文章栏 */
     .three-column-layout .recent-posts-sidebar {
         position: sticky;
-        top: 2rem;
+        top: calc(60px + 2rem); /* 导航栏高度(60px) + 期望的间距(2rem) */
         height: fit-content;
-        max-height: calc(100vh - 4rem);
+        max-height: calc(100vh - 60px - 2rem); /* 视口高度 - 导航栏高度 - 顶部间距 */
         overflow-y: auto;
         font-size: 0.95em;
         border: 1px solid var(--border);
