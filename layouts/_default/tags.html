@@ -1,0 +1,37 @@
+{{- define "main" }}
+
+{{- if .Title }}
+<header class="page-header">
+    <h1>
+        <!-- 分离 emoji 和文字 -->
+        <span>🏷️</span>
+        <span>标签</span>
+    </h1>
+    {{- if .Description }}
+    <div class="post-description">
+        {{ .Description }}
+    </div>
+    {{- end }}
+</header>
+{{- end }}
+
+{{- $taxonomies := .Site.Taxonomies.tags }}
+{{- if gt (len $taxonomies) 0 }}
+    <ul class="terms-tags">
+        {{- range $name, $taxonomy := $taxonomies }}
+            <li>
+                <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}">
+                    {{- $name -}}
+                    <sup><strong>{{- .Count -}}</strong></sup>
+                </a>
+            </li>
+        {{- end }}
+    </ul>
+{{- else }}
+    <div class="terms-tags-empty">
+        <p>暂时还没有标签哦~ 标签会随着文章的发布逐渐增加 📝</p>
+        <p>敬请期待下一篇文章！✨</p>
+    </div>
+{{- end }}
+
+{{- end }}{{/* end main */ -}}

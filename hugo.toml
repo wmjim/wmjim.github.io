@@ -115,10 +115,6 @@ EndYear = 2025
     [params.assets]
         disableScrollToTop = false # 同时显示回到顶部按钮
         favicon = "/images/avatar.jpg"
-        # customCSS = [   "css/extended/fonts.css",
-        #                 "css/extended/three-columns.css",
-        #                 "css/extended/styles.css"
-        #             ]
     [params.cover]
         hidden = false         # 不隐藏封面
         hiddenInList = false   # 列表页显示封面
@@ -194,8 +190,9 @@ EndYear = 2025
 
 # 分类法
 [taxonomies]
-    tag = "tags"        # 标签分类
-    series = "series"   # 系列分类
+    tag = "tags"                # 标签分类
+    category = "categories"     # 分类
+    series = "series"           # 系列分类
 
 # 自定义首页输出格式
 [outputs]

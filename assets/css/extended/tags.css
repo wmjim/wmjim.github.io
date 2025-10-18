@@ -1,0 +1,143 @@
+/* 标签页样式 */
+
+/* 标题区域样式 */
+.page-header {
+    margin: 2rem auto 3rem;
+    text-align: center;
+    max-width: 900px;
+    padding: 0 1rem;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* 为标题文字应用渐变色，但排除 emoji */
+.page-header h1 span:not(:first-child) {
+    background: linear-gradient(120deg, var(--primary), var(--secondary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: gradientText 5s ease infinite;
+}
+
+@keyframes gradientText {
+    0%, 100% {
+        filter: hue-rotate(0deg);
+    }
+    50% {
+        filter: hue-rotate(30deg);
+    }
+}
+
+.post-description {
+    color: var(--secondary);
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+/* 标签列表样式 */
+.terms-tags {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    position: relative;
+    background: var(--theme);
+}
+
+
+/* 标签项样式 */
+.terms-tags li {
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.terms-tags a {
+    display: flex;
+    align-items: center;
+    padding: 0.6rem 1.2rem;
+    background: var(--entry);
+    border: 2px solid var(--border);
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.terms-tags a sup {
+    background: var(--primary);
+    color: var(--theme);
+    border-radius: 12px;
+    padding: 0.2rem 0.6rem;
+    margin-left: 0.6rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+/* 悬停效果 */
+.terms-tags a:hover {
+    transform: translateY(-2px) scale(1.05);
+    background: var(--primary);
+    color: var(--theme);
+    border-color: var(--primary);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.terms-tags a:hover sup {
+    background: var(--theme);
+    color: var(--primary);
+}
+
+/* 标签组动画 */
+.terms-tags li {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.terms-tags li:nth-child(1) { animation-delay: 0.1s; }
+.terms-tags li:nth-child(2) { animation-delay: 0.2s; }
+.terms-tags li:nth-child(3) { animation-delay: 0.3s; }
+.terms-tags li:nth-child(4) { animation-delay: 0.4s; }
+.terms-tags li:nth-child(5) { animation-delay: 0.5s; }
+
+/* 空状态样式 */
+.terms-tags-empty {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--secondary);
+    background: var(--entry);
+    border-radius: 1rem;
+    margin: 2rem auto;
+    max-width: 600px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.terms-tags-empty p:first-child {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.terms-tags-empty p:last-child {
+    font-style: italic;
+    color: var(--secondary);
+}

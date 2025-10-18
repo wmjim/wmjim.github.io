@@ -2,6 +2,7 @@
 title: "👤 关于我"
 layout: "about"
 url: "/about/"
+summary: "about"
 ---
 
 你好，欢迎您来到我的个人博客！
