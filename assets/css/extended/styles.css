@@ -94,3 +94,76 @@ body.dark .post-content-wrapper .post-content a:hover {
   color: #87cefa; /* 更明亮的浅蓝色 */
   background-color: rgba(255, 255, 255, 0.05); /* 微妙的白色背景高亮 */
 }
+
+
+/* ==========================================
+   优化任务列表样式
+   ========================================== */
+
+
+/* 为选中的复选框列表项添加样式 */
+.post-content li:has(input[type="checkbox"]:checked) {
+  text-decoration: line-through;  /* 为已选中的列表项添加删除线效果 */
+}
+
+/* 定义带有复选框的列表样式 */
+.post-content ul:has(input[type="checkbox"]) {
+  list-style: none;  /* 移除默认的列表项标记（如圆点） */
+  padding-left: 0;   /* 移除默认的左内边距 */
+}
+
+/* 定义带有复选框的列表项样式 */
+.post-content ul:has(input[type="checkbox"]) li {
+  list-style: none;  /* 确保列表项没有默认的标记 */
+}
+
+.post-content li input[type="checkbox"] {
+  appearance: none;
+  width: 1.3rem;
+  height: 1.3rem;
+  margin: 0 0.5em 0 0;
+  padding: 0;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  position: relative;
+  top: 0.2em;
+  transition: all 0.2s ease;
+}
+
+
+/* 复选框选中状态样式 */
+.post-content li input[type="checkbox"]:checked {
+  border-color: #0284c7 !important;
+  background-color: #0284c7 !important;
+}
+
+/* 使用伪元素创建对勾标记 */
+.post-content li input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: calc(50% - 3px);
+  top: calc(50% - 6px);
+  width: 5px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+
+/* 暗色模式样式 */
+body.dark .post-content li input[type="checkbox"] {
+  border-color: #444;
+  background: #1d1e20;
+}
+
+body.dark .post-content li input[type="checkbox"]:checked {
+  border-color: #4da9d8 !important;
+  background-color: #4da9d8 !important;
+}
+
+body.dark .post-content li:has(input[type="checkbox"]:checked) {
+  color: #888;
+}
